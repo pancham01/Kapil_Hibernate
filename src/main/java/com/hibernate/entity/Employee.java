@@ -1,7 +1,11 @@
 package com.hibernate.entity;
 
-public class Employee {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Employee {
+	@Id
 	private int id;
 	private String name;
 	private String gender;
@@ -11,8 +15,9 @@ public class Employee {
 		super();
 	}
 
-	public Employee(String name, String gender, int salary) {
+	public Employee(int id,String name, String gender, int salary) {
 		super();
+		this.id=id;
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
