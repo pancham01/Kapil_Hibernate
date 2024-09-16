@@ -22,9 +22,6 @@ public class Client {
 		Transaction tx = session.beginTransaction();
 //		session.save(e);
 //		tx.commit();
-		Employee employee = session.load(Employee.class, 2);
-		System.out.println(employee);
-		System.out.println("Transaction done.............");
 	}
 
 }
