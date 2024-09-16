@@ -18,13 +18,13 @@ public class Client {
 
 		 
 		SessionFactory sf = new MetadataSources(new StandardServiceRegistryBuilder().configure().build()).getMetadataBuilder().build().buildSessionFactory();
-//		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
 //		session.save(e);
 //		tx.commit();
 		Employee employee = session.load(Employee.class, 2);
 		System.out.println(employee);
+		System.out.println("Transaction done.............");
 	}
 
 }
