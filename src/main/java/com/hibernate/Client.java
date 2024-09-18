@@ -9,16 +9,17 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import com.hibernate.config.HibernateConfig;
 import com.hibernate.entity.Employee;
 
 public class Client {
 
 	public static void main(String[] args) {
-		Employee e = new Employee(1,"Swati", "female", 45784);
+		Employee e = new Employee(1, "Swati", "female", 45784);
 
-		 
-		SessionFactory sf = new MetadataSources(new StandardServiceRegistryBuilder().configure().build()).getMetadataBuilder().build().buildSessionFactory();
-		Session session = sf.openSession();
+//		SessionFactory sf = new MetadataSources(new StandardServiceRegistryBuilder().configure().build())
+//				.getMetadataBuilder().build().buildSessionFactory();
+		Session session = HibernateConfig.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		session.save(e);
 		tx.commit();
